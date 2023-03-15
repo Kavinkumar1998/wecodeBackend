@@ -27,8 +27,7 @@ import mongoose from "mongoose";
             
            },
            role:{
-            type:String,
-            required:true
+            type:String
 
            }
       })
