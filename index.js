@@ -18,6 +18,9 @@ dataBaseConnection();
 const app = express();
 const PORT = process.env.PORT;
 
+app.get("/", (req, res) => {
+    res.send("server started");
+  });
 app.use(express.json()); 
 app.use(cors());
 app.use("/api/userRequests",isSignedIn,RequestRouter)
