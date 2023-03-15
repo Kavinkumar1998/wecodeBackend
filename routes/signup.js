@@ -5,7 +5,7 @@ import { User,generateAuthToken} from "../model/user.js";
 const router =  express.Router();
 
 
-router.post("/",async (req,res)=>{
+router.post("/signup",async (req,res)=>{
     try{
         const{FirstName,LastName,email,password}= req.body;
         let user = await User.findOne({email:email});
