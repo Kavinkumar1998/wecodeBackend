@@ -26,6 +26,6 @@ app.get("/", (req, res) => {
 app.use("/api/userRequests",isSignedIn,RequestRouter)
 app.use("/api/Leads",isSignedIn,LeadRouter)
 app.use("/api/Users",isSignedIn,userRouter)
-app.use("/api/login",loginRouter)
-app.use("/api/signup",signupRouter)
+app.use("/api",loginRouter)
+app.use("/api",signupRouter)
 app.listen(PORT,()=>console.log(`server is started at ${PORT}`));
