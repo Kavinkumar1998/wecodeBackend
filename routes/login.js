@@ -17,7 +17,10 @@ router.post("/",async(req,res)=>{
             return res.status(400).json({message:"Invalid Credential"})
          }
 const token = generateAuthToken(user._id);
-res.status(200).json({message: "Loged in successfully", token})
+const Name = user.FirstName;
+const Email = user.email;
+const role = user.role;
+res.status(200).json({message: "Loged in successfully", token,Name,Email,role});
         }
     catch(error){
         res.status(500).json({message :"Internal server error"})
@@ -78,7 +81,7 @@ router.post("/setPassword", async (req,res)=>{
     try{
         const{email,password}= req.body;
         let user = await User.findOne({email:email});
-        if(user){return res.status(400).json({message:"Email Already Exist"});}
+        if(!user){return res.status(400).json({message:"Email Already Exist"});}
         //password generation
 
         else if(password.length< 8){
